@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Chatbot de IA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 90vh;
+            background-color: #f4f4f9;
+        }
+        .chat-container {
+            width: 300px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .header {
+            background-color: #005a87;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        .messages {
+            height: 300px;
+            overflow-y: auto;
+            padding: 10px;
+            background: white;
+        }
+        .footer {
+            padding: 10px;
+            background: #eee;
+        }
+        textarea {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            resize: none;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="header">
+            Chatbot de IA
+        </div>
+        <div class="messages" id="messages"></div>
+        <div class="footer">
+            <textarea id="userInput" rows="3"></textarea>
+            <button onclick="sendMessage()">Enviar</button>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            var input = document.getElementById('userInput');
+            var messages = document.getElementById('messages');
+            var newMessage = document.createElement('div');
+            newMessage.textContent = 'Você: ' + input.value;
+            messages.appendChild(newMessage);
+
+            // Simulando uma resposta do bot
+            var botResponse = document.createElement('div');
+            botResponse.textContent = 'Bot: Resposta simulada';
+            messages.appendChild(botResponse);
+
+            input.value = ''; // limpa o campo de entrada
+            messages.scrollTop = messages.scrollHeight; // rola para a última mensagem
+        }
+    </script>
+</body>
+</html>
